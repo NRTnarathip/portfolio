@@ -100,7 +100,7 @@ export default {
 			</div>
 			<div class="flex fc flex-col">
 				<img class="h-20 bg-slate-300 rounded-full p-4" src="/img/vue.png">
-				<span class="text-xl">1 Month Beginer</span>
+				<span class="text-xl">1 Month Beginner</span>
 			</div>
 		</div>
 
