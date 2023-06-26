@@ -1,18 +1,46 @@
 <script>
+import { ref } from 'vue';
+
+
 export default {
 	setup() {
-		return {}
+		const lastCommitDate = ref('')
+		return {
+			lastCommitDate
+		}
 	},
 	methods: {
 		go(path) {
 			this.$router.push(path)
 		}
-	}
+	},
+	mounted() {
+		const owner = 'NRTnarathip'; // Replace with the actual GitHub username or organization name
+		const repo = 'portfolio'; //
+		fetch(`https://api.github.com/repos/${owner}/${repo}/commits`)
+			.then(response => {
+				if (!response.ok) {
+					throw new Error('Unable to fetch GitHub commits.');
+				}
+				return response.json();
+			})
+			.then(data => {
+				if (data.length > 0) {
+					this.lastCommitDate = data[0].commit.committer.date;
+				} else {
+					throw new Error('No commits found in the repository.');
+				}
+			})
+			.catch(error => {
+				console.error('Error:', error.message);
+			});
+	},
 }
 </script>
 
 <template>
-	<div class="header flex items-center justify-between sticky top-0 z-40 w-full backdrop-blur flex-none bg-slate-900/80 shadow-sm shadow-white/20">
+	<div
+		class="header flex items-center justify-between sticky top-0 z-40 w-full backdrop-blur flex-none bg-slate-900/80 shadow-sm shadow-white/20">
 		<div class="absolute flex fc">
 			<div class="flex fc left-0">
 				<img class="w-20 rounded p-2"
@@ -28,7 +56,8 @@ export default {
 			<div class="nav-link" @click="go('/codeproject')">Code Project</div>
 		</div>
 		<div class="absolute right-8">
-			😁🙌
+			<!-- 😁🙌 -->
+			Last Update: {{ lastCommitDate }}
 		</div>
 	</div>
 	<div class="content">

@@ -114,22 +114,5 @@ export default {
 				และอื่นๆ C, Asesmbly, Java ในระดับพื้นฐาน
 			</div>
 		</div>
-
-		<div class="mt-14 text-xl">
-			<div class="text-2xl">Social Network</div>
-			<div>
-				<span class="text-sky-400">
-					Facebook:
-				</span>
-				<a href="https://web.facebook.com/narathipthNRT/" target="_blank" rel="noopener noreferrer">NRT narathip</a>
-			</div>
-			<div>
-				<span class="text-red-400">
-					Youtube:
-				</span>
-				<a href="https://www.youtube.com/channel/UC-QDaD0u_-Ayr_Dd46sKvpw" target="_blank"
-					rel="noopener noreferrer">NRT narathip</a>
-			</div>
-		</div>
 	</div>
 </template>
