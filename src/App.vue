@@ -26,7 +26,15 @@ export default {
 			})
 			.then(data => {
 				if (data.length > 0) {
-					this.lastCommitDate = data[0].commit.committer.date;
+					const githubDate = data[0].commit.committer.date;
+					const date = new Date(githubDate).toLocaleString('en-US', {
+						timeZone: 'Asia/Bangkok',
+						hour12: false,
+					});
+					const dateTimeSplit = date.split(',')
+					const dateSplit = dateTimeSplit[0].split('/')
+					const dateFormat = `${dateSplit[1]}/${dateSplit[0]}/${dateSplit[2]}` 
+					this.lastCommitDate = `${dateFormat}, ${dateTimeSplit[1]}`
 				} else {
 					throw new Error('No commits found in the repository.');
 				}

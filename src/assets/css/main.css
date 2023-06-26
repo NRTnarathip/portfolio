@@ -12,10 +12,6 @@ body {
 	@apply w-screen bg-gradient-to-r from-slate-900 to-blue-900;
 }
 
-#app {}
-
-.header {}
-
 .nav {
 	@apply flex place-content-center gap-4 py-6 w-screen h-auto;
 	@apply text-slate-100 text-2xl;
@@ -57,10 +53,6 @@ body {
 
 .div-hover:hover {
 	transform: scale(1.05);
-}
-
-img {
-	@apply div-hover;
 }
 
 .title {
